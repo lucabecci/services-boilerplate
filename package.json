@@ -27,7 +27,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "npx prettier --write src/* && npx eslint --fix src/* && npx prettier --write test/* && npx eslint --fix test/* && npx prettier --write core/* && npx eslint --fix core/* "
+      "pre-commit": "npx prettier --write src/* && npx eslint --fix src/* && npx prettier --write test/* && npx eslint --fix test/* && npx prettier --write core/* && npx eslint --fix core/* && yarn run version"
     }
   }
 }
