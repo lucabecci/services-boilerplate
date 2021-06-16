@@ -12,4 +12,5 @@
 - API docs template with different server
 - CI/CD example with github actions
 - Log folder with logger util for catch errors
+- husky, prettier, conventional and eslint for good practises
 

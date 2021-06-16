@@ -5,15 +5,28 @@
   "author": "lucabecci <beccibrian@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "auto-changelog": "^2.3.0"
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "artillery": "^1.7.3",
+    "auto-changelog": "^2.3.0",
+    "eslint": "^7.28.0",
+    "husky": "^6.0.0",
+    "mocha": "^9.0.0",
+    "prettier": "^2.3.1"
   },
   "scripts": {
-    "start": "node ./core/entrypoint"
+    "start": "node ./core/entrypoint",
+    "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "dependencies": {
     "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "moment": "^2.29.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
