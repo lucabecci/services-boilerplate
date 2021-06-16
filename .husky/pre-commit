@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx prettier --write src/* && npx eslint --fix src/* && npx prettier --write test/* && npx eslint --fix test/* && npx prettier --write core/* && npx eslint --fix core/* && yarn run version

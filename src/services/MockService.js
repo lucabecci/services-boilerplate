@@ -1,13 +1,13 @@
 module.exports = {
-    Response: function(callback){
+    Response: function (callback) {
         return {
-            status: function(status){
+            status: function (status) {
                 return {
-                    json: function(body){
-                        callback(status, body)
-                    }
-                }
-            }
-        }
+                    json: function (body) {
+                        callback(status, body);
+                    },
+                };
+            },
+        };
     },
-}
+};
