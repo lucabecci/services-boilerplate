@@ -6,8 +6,8 @@ const HISTOGRAM_LABEL_NAMES = ["method", "route", "code"]
 const HISTOGRAM_BUCKETS = [0.10, 5, 15, 50, 100, 200, 300, 400, 500]  // buckets for response time from 0.1ms to 500ms
 
 module.exports = {
-    PrometheusClient: Prometheus, 
-    metricsInterval: instanceMetricsInterval,
+    Client: Prometheus, 
+    metricsInterval: instanceMetricsInterval(),
     httpRequestDurationMicroseconds: instanceHttpDurationMetrics()
 }
 
