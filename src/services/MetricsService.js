@@ -1,16 +1,28 @@
 module.exports = {
     server_metrics: function (app) {
-       const statusMonitor = require("express-status-monitor")(configuration)
-       app.use(statusMonitor)
-       app.get('/status', (req, res, next) => {
-            const usr = req.body.usr
-            const pwd = req.body.pwd
-            if(usr == process.env.ADMIN_USR && pwd === process.env.ADMIN_PWD){
-                next()
-            }else{
-                return res.status(401).json({message: "Invalid credentials"})
-            }
-       }, statusMonitor.pageRoute)
+        const statusMonitor = require("express-status-monitor")(configuration);
+        app.use(statusMonitor);
+        app.get(
+            "/status",
+            (req, res, next) => {
+                if(!req.body.usr && req.body.pwd){
+                    return res.status(401).json({ message: "Send credentials for the access" })
+                }
+                const usr = req.body.usr;
+                const pwd = req.body.pwd;
+                if (
+                    usr == process.env.ADMIN_USR &&
+                    pwd === process.env.ADMIN_PWD
+                ) {
+                    next();
+                } else {
+                    return res
+                        .status(401)
+                        .json({ message: "Invalid credentials" });
+                }
+            },
+            statusMonitor.pageRoute
+        );
     },
 };
 
