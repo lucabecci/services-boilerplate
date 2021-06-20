@@ -1,14 +1,16 @@
-const colors = require("colors/safe");
+const colors = require("colors");
+const main = require("./main");
 require("dotenv").config();
 function entrypoint() {
     console.log(
-        `${colors.bgMagenta(
-            colors.black(process.env.NAME)
-        )} started ${colors.green("succesfully")}`
+        colors.green("RUNNING CORE SERVER IN MODE ==> "),
+        colors.cyan(process.env.NODE_ENV.toUpperCase())
     );
+    main.start();
+
     process.on("SIGINT", function () {
-        console.log(colors.bgBlack("Waiting for close the server..."));
-        process.exit(0);
+        main.finish();
+        console.log(colors.red("CORE FINISH PROCESS AND CLOSING..."));
     });
 }
 
