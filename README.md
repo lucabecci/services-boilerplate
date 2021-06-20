@@ -13,4 +13,5 @@
 - CI/CD example with github actions
 - Log folder with logger util for catch errors
 - husky, prettier, conventional and eslint for good practises
+- pay server with metrics and integrations(paypal, stripe, (try mercadopago))
 
