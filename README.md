@@ -6,7 +6,8 @@
 - Mongo db without mongoose persisten library(because is more faster the driver and you have more libertity for your future hard query)
 - Redis for messague queue(future)
 - Sentry for good protection and rendiment 
-- Prometheus Graphana for monitoring of the services
+- Prometheus Graphana for monitoring of the services(FUTURE WITH K8S AND DOCKER RUNNER FOR PROM)
+- Metrics monitoring for express with express-status-monitor
 - Test unit for your api with services for tests
 - Artillery for the stress cases or other test cases
 - API docs template with different server
