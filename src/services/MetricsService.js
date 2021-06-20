@@ -5,8 +5,10 @@ module.exports = {
         app.get(
             "/status",
             (req, res, next) => {
-                if(!req.body.usr && req.body.pwd){
-                    return res.status(401).json({ message: "Send credentials for the access" })
+                if (!req.body || !req.body.usr || !req.body.pwd) {
+                    return res
+                        .status(401)
+                        .json({ message: "Send credentials for the access" });
                 }
                 const usr = req.body.usr;
                 const pwd = req.body.pwd;
