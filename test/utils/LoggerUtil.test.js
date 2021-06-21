@@ -1,4 +1,4 @@
-const { ErrorLogger } = require("../../src/utils/LoggerUtil");
+const { ErrorLogger } = require("../../common/src/utils/LoggerUtil");
 
 describe("LoggerUtil", () => {
     it("LoggerUtil.ErrorLogger - Insert", function (done) {
