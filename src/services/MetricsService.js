@@ -2,7 +2,7 @@ module.exports = {
     server_metrics: function (app) {
         const statusMonitor = require("express-status-monitor")(configuration);
         app.use(statusMonitor);
-        app.get(
+        app.post(
             "/status",
             (req, res, next) => {
                 if (!req.body || !req.body.usr || !req.body.pwd) {
@@ -13,7 +13,7 @@ module.exports = {
                 const usr = req.body.usr;
                 const pwd = req.body.pwd;
                 if (
-                    usr == process.env.ADMIN_USR &&
+                    usr === process.env.ADMIN_USR &&
                     pwd === process.env.ADMIN_PWD
                 ) {
                     next();

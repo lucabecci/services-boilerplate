@@ -28,6 +28,8 @@ function init() {
     const app = express();
     MetricsService.server_metrics(app);
     HTTPService.HTTPErrorHandler(app);
+    ServerServices.middleware(app, express.json({limit: '50mb'}))
+    ServerServices.middleware(app, express.urlencoded({extended: false}))
     ServerServices.endpoint(app, "/", IndexRouter.init());
     return app;
 }
